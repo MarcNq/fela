@@ -7,13 +7,14 @@ export default function feFactory(
 ) {
   return function fe(type: any, props: Object = {}, ...children: any) {
     if (props) {
-      const { css, className, ...otherProps } = props
+      const { css, className, key, ...otherProps } = props
 
       if (css) {
         return createElement(
           FelaComponent,
           {
             style: css,
+            key,
           },
           renderProps =>
             createElement(
